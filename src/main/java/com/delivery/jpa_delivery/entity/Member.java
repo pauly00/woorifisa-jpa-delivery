@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED) // JPA 기본 생성자 (접근 제어로 안전성 확보)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
 public class Member {

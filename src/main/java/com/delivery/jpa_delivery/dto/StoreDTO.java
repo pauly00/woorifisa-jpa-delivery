@@ -1,6 +1,7 @@
 package com.delivery.jpa_delivery.dto;
 
 import com.delivery.jpa_delivery.entity.Store;
+import java.util.List;
 import lombok.Getter;
 
 @Getter
@@ -11,7 +12,7 @@ public class StoreDTO {
     private String address;
 
     // menus 필드는 Menu 엔티티(4번 팀원) 합류 후 추가 예정
-    // private List<MenuDTO> menus;
+     private List<MenuDTO> menus;
 
     private StoreDTO(Long id, String name, String address) {
         this.id = id;
