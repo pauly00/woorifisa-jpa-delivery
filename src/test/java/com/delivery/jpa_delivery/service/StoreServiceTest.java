@@ -1,4 +1,4 @@
-package com.delivery.jpa_delivery;
+package com.delivery.jpa_delivery.service;
 
 import com.delivery.jpa_delivery.dto.StoreDTO;
 import com.delivery.jpa_delivery.entity.Store;
@@ -14,7 +14,7 @@ import java.util.List;
 
 @SpringBootTest
 @Transactional
-class StoreTest {
+class StoreServiceTest {
 
     @PersistenceContext
     EntityManager em;
