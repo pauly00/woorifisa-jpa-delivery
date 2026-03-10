@@ -1,6 +1,8 @@
 package com.delivery.jpa_delivery.entity;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.*;
 
 @Entity

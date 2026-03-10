@@ -29,9 +29,9 @@ public class Store {
      * CascadeType.ALL - 가게 삭제 시 메뉴도 함께 삭제
      * (Menu 엔티티는 4번 팀원 담당)
      */
-    // @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, orphanRemoval = true)
-    // @Builder.Default
-    // private List<Menu> menus = new ArrayList<>();
+     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, orphanRemoval = true)
+     @Builder.Default
+     private List<Menu> menus = new ArrayList<>();
 
     @Override
     public String toString() {
