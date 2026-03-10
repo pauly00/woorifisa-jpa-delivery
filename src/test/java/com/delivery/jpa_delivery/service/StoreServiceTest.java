@@ -86,9 +86,9 @@ class StoreServiceTest {
                     .build();
             em.persist(국밥집);
 
-            // Menu.confirmStore()가 menu.store 설정 + 가게의 menus 리스트에 추가를 동시에 처리
+            // Menu.setStore()가 menu.store 설정 + 가게의 menus 리스트에 추가를 동시에 처리
             Menu 뚝배기국밥 = Menu.builder().name("뚝배기국밥").price(9000).build();
-            뚝배기국밥.confirmStore(국밥집);
+            뚝배기국밥.setStore(국밥집);
             em.persist(뚝배기국밥);
 
             tx.commit();
@@ -148,12 +148,12 @@ class StoreServiceTest {
             em.persist(치킨집);
 
             // Menu가 연관관계의 주인(store_id FK 보유)
-            // confirmStore()가 menu.store = 가게 + 가게.menus.add(menu) 양쪽 연관관계를 동시에 설정
+            // setStore()가 menu.store = 가게 + 가게.menus.add(menu) 양쪽 연관관계를 동시에 설정
             Menu 후라이드 = Menu.builder().name("후라이드").price(18000).build();
             Menu 양념치킨 = Menu.builder().name("양념치킨").price(19000).build();
 
-            후라이드.confirmStore(치킨집);
-            양념치킨.confirmStore(치킨집);
+            후라이드.setStore(치킨집);
+            양념치킨.setStore(치킨집);
 
             em.persist(후라이드);
             em.persist(양념치킨);
@@ -176,7 +176,7 @@ class StoreServiceTest {
                 System.out.println("  - " + m.getName() + " : " + m.getPrice() + "원"));
 
         /**
-         * confirmStore()는 연관관계 편의 메서드로,
+         * setStore()는 연관관계 편의 메서드로,
          * 연관관계의 주인(Menu) 쪽만 설정해도 반대편(Store.menus)까지 함께 적용됨
          */
     }
