@@ -30,7 +30,7 @@ class MemberServiceTest {
     void joinTest() {
         // given
         Member member = Member.builder()
-                .name("미뇽")
+                .username("미뇽")
                 .address("대구")
                 .build();
 
@@ -39,7 +39,7 @@ class MemberServiceTest {
 
         // then
         Member findMember = memberService.findOne(savedId);
-        assertThat(findMember.getName()).isEqualTo("미뇽");
+        assertThat(findMember.getUsername()).isEqualTo("미뇽");
         assertThat(findMember.getAddress()).isEqualTo("대구");
     }
 
@@ -49,8 +49,8 @@ class MemberServiceTest {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        em.persist(Member.builder().name("UserA").build());
-        em.persist(Member.builder().name("UserB").build());
+        em.persist(Member.builder().username("UserA").build());
+        em.persist(Member.builder().username("UserB").build());
 
         em.getTransaction().commit();
         em.close();
@@ -70,7 +70,7 @@ class MemberServiceTest {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        Member member = Member.builder().name("주문자").build();
+        Member member = Member.builder().username("주문자").build();
         em.persist(member);
 
         // 연관관계 편의 메서드를 통해 주문 생성
@@ -95,6 +95,6 @@ class MemberServiceTest {
 
         // then
         assertThat(orders).hasSize(2);
-        assertThat(orders.get(0).getMember().getName()).isEqualTo("주문자");
+        assertThat(orders.get(0).getMember().getUsername()).isEqualTo("주문자");
     }
 }
