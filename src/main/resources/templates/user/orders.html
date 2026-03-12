@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>나의 주문 내역</title>
+    <style>
+        .header { background-color: #f8f9fa; padding: 10px; border-bottom: 1px solid #ddd; }
+        .order-card { border: 1px solid #ccc; margin: 10px 0; padding: 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h3><span sec:authentication="name">사용자</span>님의 주문 공간</h3>
+    <a th:href="@{/main}">메인으로 돌아가기</a> |
+    <form th:action="@{/logout}" method="post" style="display:inline;">
+        <button type="submit">로그아웃</button>
+    </form>
+</div>
+
+<h2>📦 나의 최근 주문 내역</h2>
+
+<div class="order-card">
+    <h4>주문번호: 20260312-001</h4>
+    <p>메뉴: 황금올리브 치킨</p>
+    <p>가격: 20,000원</p>
+    <p>상태: <strong style="color: blue;">배달 중</strong></p>
+</div>
+
+<div class="order-card">
+    <h4>주문번호: 20260311-098</h4>
+    <p>메뉴: 로제 떡볶이</p>
+    <p>가격: 12,000원</p>
+    <p>상태: <strong style="color: green;">배달 완료</strong></p>
+</div>
+
+<div th:if="${#lists.isEmpty(orders)}">
+    <p>아직 주문한 내역이 없습니다. 맛있는 음식을 주문해 보세요!</p>
+</div>
+
+</body>
+</html>

@@ -22,7 +22,12 @@ public class Member {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String password; // BCrypt로 암호화된 비밀번호가 저장될 곳
     private String address;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     // 회원이 주문한 내역들 (1:N 양방향 매핑)
     // mappedBy: Orders 엔티티에 있는 'member' 필드에 의해 매핑됨을 의미

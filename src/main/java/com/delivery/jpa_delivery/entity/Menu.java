@@ -20,7 +20,7 @@ public class Menu {
     private String name;
     private int price;
 
-    @ManyToOne // 가게 정보를 실제로 쓸 때만 가져와라
+    @ManyToOne
     @JoinColumn(name = "store_id")
     private Store store;
 

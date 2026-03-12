@@ -1,0 +1,12 @@
+<nav xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div sec:authorize="isAnonymous()"> <a th:href="@{/login}">로그인</a> | <a th:href="@{/join}">회원가입</a>
+    </div>
+    <div sec:authorize="isAuthenticated()"> <span sec:authentication="name">사용자</span>님 환영합니다!
+        <form th:action="@{/logout}" method="post" style="display:inline;">
+            <button type="submit">로그아웃</button>
+        </form>
+        <hr>
+        <a th:href="@{/user/orders}">내 주문 확인 (USER)</a> |
+        <a th:href="@{/admin/stores}">가게 관리 (ADMIN)</a>
+    </div>
+</nav>
