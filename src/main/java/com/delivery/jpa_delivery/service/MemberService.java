@@ -15,6 +15,7 @@ import java.util.List;
 public class MemberService {
 
     private final EntityManagerFactory emf;
+    private final BCryptPasswordEncoder passwordEncoder
 
     /** 1. 회원 단건 조회 (ID 기반) */
     public Member findOne(Long memberId) {
@@ -67,6 +68,10 @@ public class MemberService {
 
         try {
             tx.begin();
+
+            // 비밀번호 암호화 후 저장
+            String encodedPassword = passwordEncoder.encode(member.getPassword());
+            member.updatePassword(encodedPassword);
 
             em.persist(member);
 

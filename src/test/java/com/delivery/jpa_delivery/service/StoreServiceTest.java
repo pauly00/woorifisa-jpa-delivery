@@ -88,7 +88,7 @@ class StoreServiceTest {
 
             // Menu.confirmStore()가 menu.store 설정 + 가게의 menus 리스트에 추가를 동시에 처리
             Menu 뚝배기국밥 = Menu.builder().name("뚝배기국밥").price(9000).build();
-            뚝배기국밥.confirmStore(국밥집);
+            뚝배기국밥.setStore(국밥집);
             em.persist(뚝배기국밥);
 
             tx.commit();
@@ -152,8 +152,8 @@ class StoreServiceTest {
             Menu 후라이드 = Menu.builder().name("후라이드").price(18000).build();
             Menu 양념치킨 = Menu.builder().name("양념치킨").price(19000).build();
 
-            후라이드.confirmStore(치킨집);
-            양념치킨.confirmStore(치킨집);
+            후라이드.setStore(치킨집);
+            양념치킨.setStore(치킨집);
 
             em.persist(후라이드);
             em.persist(양념치킨);
