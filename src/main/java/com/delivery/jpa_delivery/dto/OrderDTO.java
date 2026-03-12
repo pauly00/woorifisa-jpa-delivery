@@ -20,7 +20,7 @@ public class OrderDTO {
     public static OrderDTO from(Orders order) {
         return new OrderDTO(
                 order.getId(),
-                order.getMember().getName(),
+                order.getMember().getUsername(),
                 order.getMenu().getName(),
                 order.getMenu().getPrice(),
                 order.getOrderDate(),

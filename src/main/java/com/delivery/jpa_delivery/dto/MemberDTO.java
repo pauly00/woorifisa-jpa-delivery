@@ -8,6 +8,8 @@ import lombok.*;
 @Builder
 public class MemberDTO {
     private Long id;
-    private String name;
+    private String username;
+    private String password;
     private String address;
+    private String role;
 }

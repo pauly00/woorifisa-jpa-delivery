@@ -19,8 +19,8 @@ public class Member {
     @Column(name = "member_id")
     private Long id;
 
-    @Column(nullable = false)
-    private String name;
+    @Column(nullable = false, unique = true, length = 50, updatable = false)
+    private String username;
 
     @Column(nullable = false)
     private String password; // BCrypt로 암호화된 비밀번호가 저장될 곳
