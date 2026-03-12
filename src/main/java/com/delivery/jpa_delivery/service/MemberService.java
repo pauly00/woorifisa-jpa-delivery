@@ -2,6 +2,7 @@ package com.delivery.jpa_delivery.service;
 
 import com.delivery.jpa_delivery.entity.Member;
 import com.delivery.jpa_delivery.entity.Orders;
+import com.delivery.jpa_delivery.entity.Role;
 import jakarta.persistence.EntityGraph;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -94,6 +95,19 @@ public class MemberService {
         } catch (Exception e) {
             if (tx.isActive()) tx.rollback();
             throw e;
+        } finally {
+            em.close();
+        }
+    }
+
+    public Member findByUsername(String username) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.createQuery("select m from Member m where m.username = :username", Member.class)
+                    .setParameter("username", username)
+                    .getSingleResult();
+        } catch (Exception e) {
+            return null;
         } finally {
             em.close();
         }
