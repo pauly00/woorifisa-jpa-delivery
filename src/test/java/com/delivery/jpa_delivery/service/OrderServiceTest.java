@@ -36,7 +36,7 @@ class OrderServiceTest {
 
             // 회원 세팅
             Member member = Member.builder()
-                    .name("박지은")
+                    .username("박지은")
                     .address("서울시 강남구")
                     .build();
             em.persist(member);
