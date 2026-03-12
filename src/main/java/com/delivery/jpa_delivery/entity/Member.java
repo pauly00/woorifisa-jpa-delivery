@@ -44,6 +44,11 @@ public class Member {
         }
     }
 
+    // 비밀번호 업데이트 로직
+    public void updatePassword(String encodedPassword) {
+        this.password = encodedPassword;
+    }
+
     // 주소 변경 로직
     public void updateAddress(String newAddress) {
         if (newAddress != null && !newAddress.isBlank()) {
